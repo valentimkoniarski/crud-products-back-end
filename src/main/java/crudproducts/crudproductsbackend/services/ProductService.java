@@ -1,15 +1,15 @@
-package hr.hrproduct.services;
+package crudproducts.crudproductsbackend.services;
 
-import hr.hrproduct.dto.CategoryDto;
-import hr.hrproduct.dto.product.ProductDto;
-import hr.hrproduct.dto.ProductImage.ProductImageDto;
-import hr.hrproduct.dto.UserDto;
-import hr.hrproduct.dto.product.ProductSimplifiedDto;
-import hr.hrproduct.entities.Category;
-import hr.hrproduct.entities.Product;
-import hr.hrproduct.entities.ProductImage;
-import hr.hrproduct.repositories.ProductImageRepository;
-import hr.hrproduct.repositories.ProductRepository;
+import crudproducts.crudproductsbackend.dto.CategoryDto;
+import crudproducts.crudproductsbackend.dto.product.ProductDto;
+import crudproducts.crudproductsbackend.dto.ProductImage.ProductImageDto;
+import crudproducts.crudproductsbackend.dto.UserDto;
+import crudproducts.crudproductsbackend.dto.product.ProductSimplifiedDto;
+import crudproducts.crudproductsbackend.entities.Category;
+import crudproducts.crudproductsbackend.entities.Product;
+import crudproducts.crudproductsbackend.entities.ProductImage;
+import crudproducts.crudproductsbackend.repositories.ProductImageRepository;
+import crudproducts.crudproductsbackend.repositories.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

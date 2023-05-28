@@ -1,4 +1,4 @@
-package hr.hrproduct.configs;
+package crudproducts.crudproductsbackend.configs;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

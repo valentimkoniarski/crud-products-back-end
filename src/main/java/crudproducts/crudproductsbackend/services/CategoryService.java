@@ -1,10 +1,10 @@
-package hr.hrproduct.services;
+package crudproducts.crudproductsbackend.services;
 
-import hr.hrproduct.dto.CategoryDto;
-import hr.hrproduct.entities.Category;
-import hr.hrproduct.exceptions.CategoryDeleteException;
-import hr.hrproduct.repositories.CategoryRepository;
-import hr.hrproduct.repositories.ProductRepository;
+import crudproducts.crudproductsbackend.dto.CategoryDto;
+import crudproducts.crudproductsbackend.entities.Category;
+import crudproducts.crudproductsbackend.exceptions.CategoryDeleteException;
+import crudproducts.crudproductsbackend.repositories.CategoryRepository;
+import crudproducts.crudproductsbackend.repositories.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Pageable;

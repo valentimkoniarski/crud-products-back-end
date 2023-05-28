@@ -1,4 +1,4 @@
-package hr.hrproduct.auth.registration;
+package crudproducts.crudproductsbackend.auth.registration;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

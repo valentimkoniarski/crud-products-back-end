@@ -1,10 +1,10 @@
-package hr.hrproduct.services;
+package crudproducts.crudproductsbackend.services;
 
-import hr.hrproduct.dto.HistoryDto;
-import hr.hrproduct.entities.History;
-import hr.hrproduct.entities.Product;
-import hr.hrproduct.enums.ProductStatusEnum;
-import hr.hrproduct.repositories.HistoryRepository;
+import crudproducts.crudproductsbackend.dto.HistoryDto;
+import crudproducts.crudproductsbackend.entities.History;
+import crudproducts.crudproductsbackend.entities.Product;
+import crudproducts.crudproductsbackend.enums.ProductStatusEnum;
+import crudproducts.crudproductsbackend.repositories.HistoryRepository;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package hr.hrproduct.entities;
+package crudproducts.crudproductsbackend.entities;
 
 
 public enum UserRole {

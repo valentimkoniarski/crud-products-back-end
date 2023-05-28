@@ -1,13 +1,13 @@
-package hr.hrproduct.services;
+package crudproducts.crudproductsbackend.services;
 
-import hr.hrproduct.auth.TokenService;
-import hr.hrproduct.auth.TokenUtils;
-import hr.hrproduct.auth.registration.token.ConfirmationToken;
-import hr.hrproduct.auth.registration.token.ConfirmationTokenRepository;
-import hr.hrproduct.auth.registration.token.ConfirmationTokenService;
-import hr.hrproduct.dto.RegisterDto;
-import hr.hrproduct.entities.User;
-import hr.hrproduct.repositories.UserRepository;
+import crudproducts.crudproductsbackend.auth.TokenService;
+import crudproducts.crudproductsbackend.auth.TokenUtils;
+import crudproducts.crudproductsbackend.auth.registration.token.ConfirmationToken;
+import crudproducts.crudproductsbackend.auth.registration.token.ConfirmationTokenRepository;
+import crudproducts.crudproductsbackend.auth.registration.token.ConfirmationTokenService;
+import crudproducts.crudproductsbackend.dto.RegisterDto;
+import crudproducts.crudproductsbackend.entities.User;
+import crudproducts.crudproductsbackend.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

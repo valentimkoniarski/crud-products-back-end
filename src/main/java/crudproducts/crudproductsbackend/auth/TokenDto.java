@@ -1,4 +1,4 @@
-package hr.hrproduct.auth;
+package crudproducts.crudproductsbackend.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

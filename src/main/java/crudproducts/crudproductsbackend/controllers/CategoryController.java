@@ -1,8 +1,8 @@
-package hr.hrproduct.controllers;
+package crudproducts.crudproductsbackend.controllers;
 
-import hr.hrproduct.dto.CategoryDto;
-import hr.hrproduct.exceptions.CategoryDeleteException;
-import hr.hrproduct.services.CategoryService;
+import crudproducts.crudproductsbackend.dto.CategoryDto;
+import crudproducts.crudproductsbackend.exceptions.CategoryDeleteException;
+import crudproducts.crudproductsbackend.services.CategoryService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

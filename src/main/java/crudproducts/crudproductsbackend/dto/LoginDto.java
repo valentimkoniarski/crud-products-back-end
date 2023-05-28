@@ -1,4 +1,4 @@
-package hr.hrproduct.dto;
+package crudproducts.crudproductsbackend.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

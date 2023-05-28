@@ -1,6 +1,6 @@
-package hr.hrproduct.entities;
+package crudproducts.crudproductsbackend.entities;
 
-import hr.hrproduct.enums.ProductStatusEnum;
+import crudproducts.crudproductsbackend.enums.ProductStatusEnum;
 import lombok.Data;
 
 import javax.persistence.*;

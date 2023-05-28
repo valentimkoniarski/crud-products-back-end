@@ -1,6 +1,6 @@
-package hr.hrproduct.dto;
+package crudproducts.crudproductsbackend.dto;
 
-import hr.hrproduct.entities.UserRole;
+import crudproducts.crudproductsbackend.entities.UserRole;
 import lombok.Getter;
 import lombok.Setter;
 

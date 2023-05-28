@@ -1,4 +1,4 @@
-package hr.hrproduct.auth.email;
+package crudproducts.crudproductsbackend.auth.email;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package hr.hrproduct.exceptions;
+package crudproducts.crudproductsbackend.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

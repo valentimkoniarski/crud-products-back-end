@@ -1,8 +1,8 @@
-package hr.hrproduct.controllers;
+package crudproducts.crudproductsbackend.controllers;
 
-import hr.hrproduct.auth.TokenDto;
-import hr.hrproduct.auth.TokenService;
-import hr.hrproduct.dto.LoginDto;
+import crudproducts.crudproductsbackend.auth.TokenDto;
+import crudproducts.crudproductsbackend.auth.TokenService;
+import crudproducts.crudproductsbackend.dto.LoginDto;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

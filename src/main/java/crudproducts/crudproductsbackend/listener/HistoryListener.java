@@ -1,8 +1,8 @@
-package hr.hrproduct.listener;
+package crudproducts.crudproductsbackend.listener;
 
 
-import hr.hrproduct.enums.ProductStatusEnum;
-import hr.hrproduct.services.HistoryService;
+import crudproducts.crudproductsbackend.enums.ProductStatusEnum;
+import crudproducts.crudproductsbackend.services.HistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationContext;

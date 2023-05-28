@@ -1,8 +1,8 @@
-package hr.hrproduct.controllers;
+package crudproducts.crudproductsbackend.controllers;
 
-import hr.hrproduct.dto.product.ProductDto;
-import hr.hrproduct.dto.product.ProductSimplifiedDto;
-import hr.hrproduct.services.ProductService;
+import crudproducts.crudproductsbackend.dto.product.ProductDto;
+import crudproducts.crudproductsbackend.dto.product.ProductSimplifiedDto;
+import crudproducts.crudproductsbackend.services.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

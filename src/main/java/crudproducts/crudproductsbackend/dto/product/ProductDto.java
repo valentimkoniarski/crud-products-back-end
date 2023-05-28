@@ -1,9 +1,9 @@
-package hr.hrproduct.dto.product;
+package crudproducts.crudproductsbackend.dto.product;
 
 
-import hr.hrproduct.dto.CategoryDto;
-import hr.hrproduct.dto.ProductImage.ProductImageDto;
-import hr.hrproduct.dto.UserDto;
+import crudproducts.crudproductsbackend.dto.CategoryDto;
+import crudproducts.crudproductsbackend.dto.ProductImage.ProductImageDto;
+import crudproducts.crudproductsbackend.dto.UserDto;
 import lombok.Getter;
 import lombok.Setter;
 

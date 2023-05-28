@@ -1,4 +1,4 @@
-package hr.hrproduct.auth.security;
+package crudproducts.crudproductsbackend.auth.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

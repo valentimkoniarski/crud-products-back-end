@@ -1,6 +1,6 @@
-package hr.hrproduct.dto;
+package crudproducts.crudproductsbackend.dto;
 
-import hr.hrproduct.enums.ProductStatusEnum;
+import crudproducts.crudproductsbackend.enums.ProductStatusEnum;
 import lombok.Getter;
 import lombok.Setter;
 

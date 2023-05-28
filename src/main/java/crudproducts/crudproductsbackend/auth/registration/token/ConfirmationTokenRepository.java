@@ -1,4 +1,4 @@
-package hr.hrproduct.auth.registration.token;
+package crudproducts.crudproductsbackend.auth.registration.token;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

@@ -1,12 +1,12 @@
-package hr.hrproduct.auth.registration;
+package crudproducts.crudproductsbackend.auth.registration;
 
 
-import hr.hrproduct.auth.email.EmailSender;
-import hr.hrproduct.auth.registration.token.ConfirmationToken;
-import hr.hrproduct.auth.registration.token.ConfirmationTokenService;
-import hr.hrproduct.entities.User;
-import hr.hrproduct.entities.UserRole;
-import hr.hrproduct.services.UserService;
+import crudproducts.crudproductsbackend.auth.email.EmailSender;
+import crudproducts.crudproductsbackend.auth.registration.token.ConfirmationToken;
+import crudproducts.crudproductsbackend.auth.registration.token.ConfirmationTokenService;
+import crudproducts.crudproductsbackend.entities.User;
+import crudproducts.crudproductsbackend.entities.UserRole;
+import crudproducts.crudproductsbackend.services.UserService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 

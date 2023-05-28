@@ -1,4 +1,4 @@
-package hr.hrproduct.auth.registration.token;
+package crudproducts.crudproductsbackend.auth.registration.token;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

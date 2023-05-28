@@ -1,4 +1,4 @@
-package hr.hrproduct.auth;
+package crudproducts.crudproductsbackend.auth;
 
 import javax.servlet.http.HttpServletRequest;
 

@@ -1,4 +1,4 @@
-package hr.hrproduct.exceptions;
+package crudproducts.crudproductsbackend.exceptions;
 
 public class CategoryDeleteException extends Exception {
 

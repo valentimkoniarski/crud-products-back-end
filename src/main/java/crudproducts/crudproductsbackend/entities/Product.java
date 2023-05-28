@@ -1,6 +1,6 @@
-package hr.hrproduct.entities;
+package crudproducts.crudproductsbackend.entities;
 
-import hr.hrproduct.listener.HistoryListener;
+import crudproducts.crudproductsbackend.listener.HistoryListener;
 import lombok.Data;
 import lombok.Getter;
 

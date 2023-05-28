@@ -1,11 +1,11 @@
-package hr.hrproduct.services;
+package crudproducts.crudproductsbackend.services;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
-import hr.hrproduct.dto.ProductImage.ProductImageSimplifiedDto;
-import hr.hrproduct.entities.ProductImage;
-import hr.hrproduct.repositories.ProductImageRepository;
-import hr.hrproduct.repositories.ProductRepository;
+import crudproducts.crudproductsbackend.dto.ProductImage.ProductImageSimplifiedDto;
+import crudproducts.crudproductsbackend.entities.ProductImage;
+import crudproducts.crudproductsbackend.repositories.ProductImageRepository;
+import crudproducts.crudproductsbackend.repositories.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;

@@ -1,10 +1,10 @@
-package hr.hrproduct.auth.security.config;
+package crudproducts.crudproductsbackend.auth.security.config;
 
 
-import hr.hrproduct.auth.AuthTokenFilter;
-import hr.hrproduct.auth.TokenService;
-import hr.hrproduct.repositories.UserRepository;
-import hr.hrproduct.services.UserService;
+import crudproducts.crudproductsbackend.auth.AuthTokenFilter;
+import crudproducts.crudproductsbackend.auth.TokenService;
+import crudproducts.crudproductsbackend.repositories.UserRepository;
+import crudproducts.crudproductsbackend.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,6 +1,6 @@
-package hr.hrproduct.dto.ProductImage;
+package crudproducts.crudproductsbackend.dto.ProductImage;
 
-import hr.hrproduct.dto.product.ProductDto;
+import crudproducts.crudproductsbackend.dto.product.ProductDto;
 import lombok.Getter;
 import lombok.Setter;
 

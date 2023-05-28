@@ -1,7 +1,7 @@
-package hr.hrproduct.controllers;
+package crudproducts.crudproductsbackend.controllers;
 
-import hr.hrproduct.dto.ProductImage.ProductImageSimplifiedDto;
-import hr.hrproduct.services.ProductImageService;
+import crudproducts.crudproductsbackend.dto.ProductImage.ProductImageSimplifiedDto;
+import crudproducts.crudproductsbackend.services.ProductImageService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

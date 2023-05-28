@@ -1,4 +1,4 @@
-package hr.hrproduct.entities;
+package crudproducts.crudproductsbackend.entities;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

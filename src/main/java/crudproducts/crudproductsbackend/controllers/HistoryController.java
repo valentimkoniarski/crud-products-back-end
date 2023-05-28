@@ -1,7 +1,7 @@
-package hr.hrproduct.controllers;
+package crudproducts.crudproductsbackend.controllers;
 
-import hr.hrproduct.dto.HistoryDto;
-import hr.hrproduct.services.HistoryService;
+import crudproducts.crudproductsbackend.dto.HistoryDto;
+import crudproducts.crudproductsbackend.services.HistoryService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

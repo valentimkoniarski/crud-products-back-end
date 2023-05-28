@@ -1,4 +1,4 @@
-package hr.hrproduct.utils;
+package crudproducts.crudproductsbackend.utils;
 
 import java.io.ByteArrayOutputStream;
 import java.util.zip.Deflater;

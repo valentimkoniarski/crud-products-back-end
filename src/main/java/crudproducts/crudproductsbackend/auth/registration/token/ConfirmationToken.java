@@ -1,6 +1,6 @@
-package hr.hrproduct.auth.registration.token;
+package crudproducts.crudproductsbackend.auth.registration.token;
 
-import hr.hrproduct.entities.User;
+import crudproducts.crudproductsbackend.entities.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

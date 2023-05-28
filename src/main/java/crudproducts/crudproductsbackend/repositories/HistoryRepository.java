@@ -1,6 +1,6 @@
-package hr.hrproduct.repositories;
+package crudproducts.crudproductsbackend.repositories;
 
-import hr.hrproduct.entities.History;
+import crudproducts.crudproductsbackend.entities.History;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

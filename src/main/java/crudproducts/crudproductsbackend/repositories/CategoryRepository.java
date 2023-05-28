@@ -1,6 +1,6 @@
-package hr.hrproduct.repositories;
+package crudproducts.crudproductsbackend.repositories;
 
-import hr.hrproduct.entities.Category;
+import crudproducts.crudproductsbackend.entities.Category;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 

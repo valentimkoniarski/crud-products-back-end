@@ -1,8 +1,8 @@
-package hr.hrproduct.auth;
+package crudproducts.crudproductsbackend.auth;
 
 
-import hr.hrproduct.entities.User;
-import hr.hrproduct.repositories.UserRepository;
+import crudproducts.crudproductsbackend.entities.User;
+import crudproducts.crudproductsbackend.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
