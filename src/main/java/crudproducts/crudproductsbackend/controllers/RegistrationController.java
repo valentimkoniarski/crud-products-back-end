@@ -1,5 +1,7 @@
-package crudproducts.crudproductsbackend.auth.registration;
+package crudproducts.crudproductsbackend.controllers;
 
+import crudproducts.crudproductsbackend.auth.registration.RegistrationRequest;
+import crudproducts.crudproductsbackend.auth.registration.RegistrationService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
