@@ -47,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         config.setAllowedOrigins(List.of(
                 "http://localhost:5173",
                 "http://192.168.1.109:5173",
-                "https://crud-products-front-end-production.up.railway.app/"));
+                "https://crud-products-front-end-production.up.railway.app"));
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);
