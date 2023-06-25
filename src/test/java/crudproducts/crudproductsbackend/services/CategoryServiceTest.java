@@ -70,7 +70,6 @@ public class CategoryServiceTest {
 
     @Test
     public void testFindAll() {
-        when(userService.getIdUserByToken(request)).thenReturn(USER_ID);
         when(categoryRepository.findAllByUserId(USER_ID)).thenReturn(createCategory());
         categoryService.findAll(request);
         verify(categoryRepository, times(1)).findAllByUserId(USER_ID);
@@ -78,7 +77,6 @@ public class CategoryServiceTest {
 
     @Test
     public void testFindById() {
-        when(userService.getIdUserByToken(request)).thenReturn(USER_ID);
         when(categoryRepository.findByIdAndUserId(anyLong(), anyLong())).thenReturn(Optional.ofNullable(createCategory().get(0)));
         categoryService.findById(1L, request);
         verify(categoryRepository, times(1)).findByIdAndUserId(anyLong(), anyLong());
@@ -86,14 +84,12 @@ public class CategoryServiceTest {
 
     @Test
     public void testFindByIdException() {
-        when(userService.getIdUserByToken(request)).thenReturn(USER_ID);
         when(categoryRepository.findByIdAndUserId(anyLong(), anyLong())).thenReturn(null);
         assertThrows(RuntimeException.class, () -> categoryService.findById(1L, request));
     }
 
     @Test
     public void testSave() {
-        when(userService.getIdUserByToken(request)).thenReturn(USER_ID);
         when(categoryRepository.save(createCategory().get(0))).thenReturn(createCategory().get(0));
         final CategoryDto categoryDto = modelMapper.map(createCategory().get(0), CategoryDto.class);
         categoryService.save(categoryDto, request);
@@ -102,7 +98,6 @@ public class CategoryServiceTest {
 
     @Test
     public void testDelete() throws CategoryDeleteException {
-        when(userService.getIdUserByToken(request)).thenReturn(USER_ID);
         when(categoryRepository.findByIdAndUserId(anyLong(), anyLong())).thenReturn(Optional.ofNullable(createCategory().get(0)));
         categoryService.delete(1L, request);
         verify(categoryRepository, times(1)).deleteByIdAndUserId(anyLong(), anyLong());
@@ -110,7 +105,6 @@ public class CategoryServiceTest {
 
     @Test
     public void testDeleteWithProduct() {
-        when(userService.getIdUserByToken(request)).thenReturn(USER_ID);
         when(categoryRepository.findByIdAndUserId(anyLong(), anyLong())).thenReturn(Optional.ofNullable(createCategory().get(0)));
         when(productRepository.existsByCategoryIdAndUserId(anyLong(), anyLong())).thenReturn(true);
         assertThrows(CategoryDeleteException.class, () -> categoryService.delete(anyLong(), request));

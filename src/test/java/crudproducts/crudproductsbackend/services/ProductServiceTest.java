@@ -55,7 +55,7 @@ public class ProductServiceTest {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        when(userService.getIdUserByToken(request)).thenReturn(1L);
+        when(userService.getIdUserByToken(request)).thenReturn(USER_ID);
         productService = new ProductService(productRepository, userService, modelMapper, productImageRepository);
     }
 
@@ -95,7 +95,6 @@ public class ProductServiceTest {
     public void testFindAllWithPrincipalImage() {
         final Product product = createProduct();
         final List<Product> products = Collections.singletonList(product);
-        when(userService.getIdUserByToken(request)).thenReturn(USER_ID);
         when(productRepository.findAllByUserId(USER_ID)).thenReturn(products);
         when(productImageRepository.findPrincipalTrueByProductId(anyLong())).thenReturn(createProductImageWithPrincipal());
         productService.findAll(request);
@@ -106,7 +105,6 @@ public class ProductServiceTest {
     public void testFindAllWithoutPrincipalImage() {
         final Product product = createProduct();
         final List<Product> products = Collections.singletonList(product);
-        when(userService.getIdUserByToken(request)).thenReturn(USER_ID);
         when(productRepository.findAllByUserId(USER_ID)).thenReturn(products);
         when(productImageRepository.findPrincipalTrueByProductId(anyLong())).thenReturn(null);
         productService.findAll(request);
@@ -115,7 +113,6 @@ public class ProductServiceTest {
 
     @Test
     public void testFindAllDeleted() {
-        when(userService.getIdUserByToken(request)).thenReturn(USER_ID);
         when(productRepository.findAllByUserIdDeleted(USER_ID)).thenReturn(Collections.emptyList());
         productService.findAllDeleted(request);
         verify(productRepository, times(1)).findAllByUserIdDeleted(USER_ID);
@@ -123,7 +120,6 @@ public class ProductServiceTest {
 
     @Test
     public void testFindById() {
-        when(userService.getIdUserByToken(request)).thenReturn(USER_ID);
         when(productRepository.findByIdAndUserId(anyLong(), anyLong())).thenReturn(createProduct());
         productService.findById(1L, request);
         verify(productRepository, times(1)).findByIdAndUserId(anyLong(), anyLong());
@@ -147,7 +143,6 @@ public class ProductServiceTest {
 
     @Test
     public void testUpdate() {
-        when(userService.getIdUserByToken(request)).thenReturn(USER_ID);
         when(productRepository.findByIdAndUserId(anyLong(), anyLong())).thenReturn(createProduct());
         when(userService.getUserByToken(request)).thenReturn(new User());
 
@@ -157,7 +152,6 @@ public class ProductServiceTest {
 
     @Test
     public void testDelete() {
-        when(userService.getIdUserByToken(request)).thenReturn(USER_ID);
         when(productRepository.getOne(1L)).thenReturn(createProduct());
         productService.delete(1L, request);
         verify(productRepository, times(1)).deleteProductByIdAndUserId(anyLong(), anyLong());
