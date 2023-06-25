@@ -7,7 +7,6 @@ import crudproducts.crudproductsbackend.repositories.CategoryRepository;
 import crudproducts.crudproductsbackend.repositories.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +15,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
+
+import static java.util.Objects.isNull;
 
 @Service
 @AllArgsConstructor
@@ -30,12 +31,10 @@ public class CategoryService {
 
     private final ModelMapper modelMapper;
 
-    // find ALl Pageable
     public List<CategoryDto> findAll(final HttpServletRequest request) {
         final Long idUserByToken = userService.getIdUserByToken(request);
         final Iterable<Category> allByUserId = categoryRepository.findAllByUserId(idUserByToken);
-        final List<CategoryDto> categoryDtoList = getCategoryDtoList(allByUserId);
-        return categoryDtoList;
+        return getCategoryDtoList(allByUserId);
     }
 
     private List<CategoryDto> getCategoryDtoList(final Iterable<Category> allByUserId) {
@@ -47,11 +46,12 @@ public class CategoryService {
     public CategoryDto findById(final Long id, final HttpServletRequest request) {
         final Long idUserByToken = userService.getIdUserByToken(request);
         final Optional<Category> categoryById = categoryRepository.findByIdAndUserId(id, idUserByToken);
-        if (categoryById.isPresent()) {
-            final Category category = categoryById.get();
-            return modelMapper.map(category, CategoryDto.class);
+
+        if (isNull(categoryById)) {
+            throw new RuntimeException("Category not found");
         }
-        throw new RuntimeException("Category not found");
+
+        return modelMapper.map(categoryById.get(), CategoryDto.class);
     }
 
     public CategoryDto save(final CategoryDto categoryDto, final HttpServletRequest request) {
