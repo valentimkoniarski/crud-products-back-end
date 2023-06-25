@@ -39,7 +39,7 @@ public class ProductServiceTest {
     private UserService userService;
 
     @Spy
-    ModelMapper modelMapper = new ModelMapper();
+    private ModelMapper modelMapper = new ModelMapper();
 
     @Mock
     private ProductImageRepository productImageRepository;
