@@ -1,14 +1,11 @@
 package crudproducts.crudproductsbackend.services;
 
 import crudproducts.crudproductsbackend.dto.CategoryDto;
-import crudproducts.crudproductsbackend.dto.ProductImage.ProductImageDto;
 import crudproducts.crudproductsbackend.dto.UserDto;
 import crudproducts.crudproductsbackend.dto.product.ProductDto;
 import crudproducts.crudproductsbackend.dto.product.ProductSimplifiedDto;
 import crudproducts.crudproductsbackend.entities.Category;
 import crudproducts.crudproductsbackend.entities.Product;
-import crudproducts.crudproductsbackend.entities.ProductImage;
-import crudproducts.crudproductsbackend.repositories.ProductImageRepository;
 import crudproducts.crudproductsbackend.repositories.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -16,12 +13,9 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
-
-import static java.util.Objects.isNull;
 
 @Service
 @AllArgsConstructor
@@ -31,8 +25,6 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final UserService userService;
     private final ModelMapper modelMapper;
-    private final ProductImageRepository productImageRepository;
-    private final static String EMPTY_IMAGE_PRODUCT = "https://ingoodcompany.asia/images/products_attr_img/matrix/default.png";
 
     public List<ProductDto> findAll(final HttpServletRequest request) {
         final Long idUserByToken = userService.getIdUserByToken(request);
@@ -104,18 +96,6 @@ public class ProductService {
         final UserDto userDto = modelMapper.map(product.getUser(), UserDto.class);
         final ProductDto productDto = modelMapper.map(product, ProductDto.class);
         productDto.setUserDto(userDto);
-
-        final ProductImage principalTrueByProductId = productImageRepository.findPrincipalTrueByProductId(product.getId());
-        if (isNull(principalTrueByProductId)) {
-            final ProductImageDto productImageDto = new ProductImageDto();
-            productImageDto.setPrincipal(false);
-            productImageDto.setUrl(EMPTY_IMAGE_PRODUCT);
-            productDto.setProductImageDto(Collections.singletonList(productImageDto));
-        } else {
-            final ProductImageDto productImageDto = modelMapper.map(principalTrueByProductId, ProductImageDto.class);
-            productDto.setProductImageDto(Collections.singletonList(productImageDto));
-        }
-
         return productDto;
     }
 }
