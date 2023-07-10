@@ -39,9 +39,9 @@ public class HistoryService {
     }
 
     public List<HistoryDto> findAllByProductId(final Long productId) {
-        final Iterable<History> allByProductId = historyRepository.findAllByProductId(productId);
+        final Iterable<History> historyByProductId = historyRepository.findAllByProductId(productId);
 
-        final List<HistoryDto> historyDtoList = StreamSupport.stream(allByProductId.spliterator(), false)
+        final List<HistoryDto> historyDtoList = StreamSupport.stream(historyByProductId.spliterator(), false)
                 .map(history -> modelMapper.map(history, HistoryDto.class))
                 .collect(Collectors.toList());
 
