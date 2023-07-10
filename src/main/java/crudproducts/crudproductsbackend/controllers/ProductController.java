@@ -4,6 +4,8 @@ import crudproducts.crudproductsbackend.dto.product.ProductDto;
 import crudproducts.crudproductsbackend.dto.product.ProductSimplifiedDto;
 import crudproducts.crudproductsbackend.services.ProductService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,13 +20,13 @@ public class ProductController {
     private final ProductService service;
 
     @GetMapping
-    public ResponseEntity<List<ProductDto>> findAll(final HttpServletRequest request) {
-        return ResponseEntity.ok(service.findAll(request));
+    public ResponseEntity<Page<ProductDto>> findAll(final HttpServletRequest request, final Pageable pageable) {
+        return ResponseEntity.ok(service.findAll(request, pageable));
     }
 
     @GetMapping("/products-deleted")
-    public ResponseEntity<List<ProductDto>> findAllDeleted(final HttpServletRequest request) {
-        return ResponseEntity.ok(service.findAllDeleted(request));
+    public ResponseEntity<Page<ProductDto>> findAllDeleted(final HttpServletRequest request, final Pageable pageable) {
+        return ResponseEntity.ok(service.findAllDeleted(request, pageable));
     }
 
     @GetMapping("/{id}")

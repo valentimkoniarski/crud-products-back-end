@@ -9,13 +9,15 @@ import crudproducts.crudproductsbackend.entities.Product;
 import crudproducts.crudproductsbackend.repositories.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 @Service
 @AllArgsConstructor
@@ -26,15 +28,15 @@ public class ProductService {
     private final UserService userService;
     private final ModelMapper modelMapper;
 
-    public List<ProductDto> findAll(final HttpServletRequest request) {
+    public Page<ProductDto> findAll(final HttpServletRequest request, final Pageable pageable) {
         final Long idUserByToken = userService.getIdUserByToken(request);
-        final Iterable<Product> allByUserId = productRepository.findAllByUserId(idUserByToken);
+        Page<Product> allByUserId = productRepository.findAllByUserId(idUserByToken, pageable);
         return getProductSimplifiedDto(allByUserId);
     }
 
-    public List<ProductDto> findAllDeleted(final HttpServletRequest request) {
+    public Page<ProductDto> findAllDeleted(final HttpServletRequest request, final Pageable pageable) {
         final Long idUserByToken = userService.getIdUserByToken(request);
-        final Iterable<Product> allByUserId = productRepository.findAllByUserIdDeleted(idUserByToken);
+        final Page<Product> allByUserId = productRepository.findAllByUserIdDeleted(idUserByToken, pageable);
         return getProductSimplifiedDto(allByUserId);
     }
 
@@ -86,10 +88,12 @@ public class ProductService {
         return productSimplifiedDto;
     }
 
-    public List<ProductDto> getProductSimplifiedDto(final Iterable<Product> allProductsByUserId) {
-        return StreamSupport.stream(allProductsByUserId.spliterator(), false)
+    public Page<ProductDto> getProductSimplifiedDto(Page<Product> productsPage) {
+        final List<ProductDto> productDtos = productsPage.getContent()
+                .stream()
                 .map(this::mapProduct)
                 .collect(Collectors.toList());
+        return new PageImpl<>(productDtos, productsPage.getPageable(), productsPage.getTotalElements());
     }
 
     private ProductDto mapProduct(final Product product) {

@@ -1,6 +1,8 @@
 package crudproducts.crudproductsbackend.repositories;
 
 import crudproducts.crudproductsbackend.entities.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -11,11 +13,11 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Product findByIdAndUserId(Long id, Long userId);
 
-    @Query("SELECT p FROM Product p WHERE p.user.id = :userId AND p.deleted = false order by p.id desc")
-    Iterable<Product> findAllByUserId(@Param("userId") Long userId);
+    @Query("SELECT p FROM Product p WHERE p.user.id = :userId AND p.deleted = false")
+    Page<Product> findAllByUserId(@Param("userId") Long userId, Pageable pageable);
 
     @Query("SELECT p FROM Product p WHERE p.user.id = :userId AND p.deleted = true order by p.id desc")
-    Iterable<Product> findAllByUserIdDeleted(@Param("userId") Long userId);
+    Page<Product> findAllByUserIdDeleted(@Param("userId") Long userId, Pageable pageable);
 
     @Query("UPDATE Product p SET p.deleted = true WHERE p.id = :id AND p.user.id = :userId")
     @Modifying
