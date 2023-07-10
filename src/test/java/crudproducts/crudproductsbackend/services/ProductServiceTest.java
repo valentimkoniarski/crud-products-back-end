@@ -6,9 +6,7 @@ import crudproducts.crudproductsbackend.dto.product.ProductDto;
 import crudproducts.crudproductsbackend.dto.product.ProductSimplifiedDto;
 import crudproducts.crudproductsbackend.entities.Category;
 import crudproducts.crudproductsbackend.entities.Product;
-import crudproducts.crudproductsbackend.entities.ProductImage;
 import crudproducts.crudproductsbackend.entities.User;
-import crudproducts.crudproductsbackend.repositories.ProductImageRepository;
 import crudproducts.crudproductsbackend.repositories.ProductRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,9 +39,6 @@ public class ProductServiceTest {
     @Spy
     private ModelMapper modelMapper = new ModelMapper();
 
-    @Mock
-    private ProductImageRepository productImageRepository;
-
     @InjectMocks
     private ProductService productService;
 
@@ -56,7 +51,7 @@ public class ProductServiceTest {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         when(userService.getIdUserByToken(request)).thenReturn(USER_ID);
-        productService = new ProductService(productRepository, userService, modelMapper, productImageRepository);
+        productService = new ProductService(productRepository, userService, modelMapper);
     }
 
     @BeforeEach
@@ -96,7 +91,6 @@ public class ProductServiceTest {
         final Product product = createProduct();
         final List<Product> products = Collections.singletonList(product);
         when(productRepository.findAllByUserId(USER_ID)).thenReturn(products);
-        when(productImageRepository.findPrincipalTrueByProductId(anyLong())).thenReturn(createProductImageWithPrincipal());
         productService.findAll(request);
         verify(productRepository, times(1)).findAllByUserId(USER_ID);
     }
@@ -106,7 +100,6 @@ public class ProductServiceTest {
         final Product product = createProduct();
         final List<Product> products = Collections.singletonList(product);
         when(productRepository.findAllByUserId(USER_ID)).thenReturn(products);
-        when(productImageRepository.findPrincipalTrueByProductId(anyLong())).thenReturn(null);
         productService.findAll(request);
         verify(productRepository, times(1)).findAllByUserId(USER_ID);
     }
@@ -143,11 +136,11 @@ public class ProductServiceTest {
 
     @Test
     public void testUpdate() {
-        when(productRepository.findByIdAndUserId(anyLong(), anyLong())).thenReturn(createProduct());
+        final Product product = modelMapper.map(createProductDto(), Product.class);
+        when(productRepository.findByIdAndUserId(anyLong(), anyLong())).thenReturn(product);
         when(userService.getUserByToken(request)).thenReturn(new User());
-
         productService.update(1L, createProductDto(), request);
-        verify(productRepository, times(1)).save(createProduct());
+        verify(productRepository, times(1)).save(product);
     }
 
     @Test
@@ -175,14 +168,5 @@ public class ProductServiceTest {
         productDto.setUserDto(new UserDto());
         productDto.setCategoryDto(new CategoryDto());
         return productDto;
-    }
-
-    public ProductImage createProductImageWithPrincipal() {
-        final ProductImage productImage = new ProductImage();
-        productImage.setId(1L);
-        productImage.setPrincipal(true);
-        productImage.setUrl("url");
-        productImage.setProduct(new Product());
-        return productImage;
     }
 }
