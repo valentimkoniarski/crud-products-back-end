@@ -24,7 +24,6 @@ import org.springframework.data.domain.Pageable;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Collections;
-import java.util.List;
 
 import static org.hamcrest.Matchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
@@ -52,9 +51,6 @@ public class ProductServiceTest {
     private Pageable pageable;
 
     private final static Long USER_ID = 1L;
-
-    @Mock
-    private Product productMock;
 
     @Before
     public void setUp() {
