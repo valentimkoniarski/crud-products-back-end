@@ -2,15 +2,11 @@ package crudproducts.crudproductsbackend.dto.product;
 
 
 import crudproducts.crudproductsbackend.dto.CategoryDto;
-import crudproducts.crudproductsbackend.dto.UserDto;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.math.BigDecimal;
-import java.util.List;
 
-@Getter
-@Setter
+@Data
 public class ProductSimplifiedDto {
     private Long id;
     private String name;

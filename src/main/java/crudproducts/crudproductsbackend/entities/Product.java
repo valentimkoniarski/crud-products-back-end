@@ -24,9 +24,8 @@ public class Product {
     @NotNull(message = "User cannot be null")
     private User user;
 
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = true)
     @OneToOne(fetch = FetchType.LAZY)
-    @NotNull(message = "Category cannot be null")
     private Category category;
 
     @Size(max = 15, min = 5)

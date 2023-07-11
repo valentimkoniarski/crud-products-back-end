@@ -19,6 +19,8 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static java.util.Objects.isNull;
+
 @Service
 @AllArgsConstructor
 @Transactional
@@ -68,8 +70,13 @@ public class ProductService {
         product.setPrice(productDto.getPrice());
         product.setUser(userService.getUserByToken(request));
 
-        final Category category = modelMapper.map(productDto.getCategoryDto(), Category.class);
-        product.setCategory(category);
+        if (isNull(productDto.getCategoryDto())) {
+            product.setCategory(null);
+            return;
+        } else {
+            final Category category = modelMapper.map(productDto.getCategoryDto(), Category.class);
+            product.setCategory(category);
+        }
     }
 
     public ProductSimplifiedDto delete(final Long id, final HttpServletRequest request) {
@@ -83,9 +90,16 @@ public class ProductService {
 
     private ProductSimplifiedDto getProductSimplifiedDto(final Product product) {
         final ProductSimplifiedDto productSimplifiedDto = modelMapper.map(product, ProductSimplifiedDto.class);
+        setProductSimplifiedDtoCategory(productSimplifiedDto, product);
+        return productSimplifiedDto;
+    }
+
+    private void setProductSimplifiedDtoCategory(final ProductSimplifiedDto productSimplifiedDto, final Product product) {
+        if (isNull(product.getCategory())) {
+            return;
+        }
         final CategoryDto categoryDto = modelMapper.map(product.getCategory(), CategoryDto.class);
         productSimplifiedDto.setCategoryDto(categoryDto);
-        return productSimplifiedDto;
     }
 
     public Page<ProductDto> getProductSimplifiedDto(Page<Product> productsPage) {
