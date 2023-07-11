@@ -61,7 +61,7 @@ public class RegistrationService {
     }
 
     @Transactional
-    public String confirmToken(final String token) {
+    public void confirmToken(final String token) {
         final ConfirmationToken confirmationToken = confirmationTokenService.getToken(token)
                 .orElseThrow(() -> new IllegalStateException("token not found"));
 
@@ -78,8 +78,6 @@ public class RegistrationService {
         confirmationTokenService.setConfirmedAt(token);
 
         userService.enableUser(confirmationToken.getUser().getEmail());
-
-        return "confirmed";
     }
 
     private String buildEmail(final String name, final String link) {
