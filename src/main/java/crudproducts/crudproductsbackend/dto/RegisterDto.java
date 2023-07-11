@@ -1,14 +1,12 @@
 package crudproducts.crudproductsbackend.dto;
 
 import crudproducts.crudproductsbackend.entities.UserRole;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-@Getter
-@Setter
+@Data
 public class RegisterDto {
     private String firstName;
     private String lastName;
