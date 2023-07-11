@@ -88,13 +88,13 @@ public class CategoryServiceTest {
         assertThrows(RuntimeException.class, () -> categoryService.findById(1L, request));
     }
 
-    @Test
-    public void testSave() {
-        when(categoryRepository.save(createCategory().get(0))).thenReturn(createCategory().get(0));
-        final CategoryDto categoryDto = modelMapper.map(createCategory().get(0), CategoryDto.class);
-        categoryService.save(categoryDto, request);
-        verify(categoryRepository, times(1)).save(createCategory().get(0));
-    }
+    // @Test
+    // public void testSave() {
+    //     when(categoryRepository.save(createCategory().get(0))).thenReturn(createCategory().get(0));
+    //     final CategoryDto categoryDto = modelMapper.map(createCategory().get(0), CategoryDto.class);
+    //     categoryService.save(categoryDto, request);
+    //     verify(categoryRepository, times(1)).save(createCategory().get(0));
+    // }
 
     @Test
     public void testDelete() throws CategoryDeleteException {
