@@ -45,7 +45,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         final CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:8080"));
+        config.setAllowedOrigins(List.of(
+                "http://localhost:5173",
+                "http://localhost:8080",
+                "http://18.222.69.52:8080",
+                "https://18.222.69.52:8080")
+        );
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);
